@@ -1,5 +1,3 @@
-//TODO (INTERFACES EXERCISE)
-//1. Implement the IBaseRecipeCategory interface
 var BaseRecipeCategory = (function () {
     function BaseRecipeCategory(name, foodGroups) {
         this.foodGroups = [];

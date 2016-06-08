@@ -4,7 +4,7 @@
   
   //TODO (INTERFACES EXERCISE)
   //1. Change the type to use IRecipeCategory instead of RecipeCategory.
-  recipeCategories: RecipeCategories<RecipeCategory>;
+  recipeCategories: RecipeCategories<IRecipeCategory>;
 
   loadRecipes() {
       var el = (<HTMLSelectElement> document.getElementById('RecipeCategory'));
@@ -18,11 +18,12 @@
                 //TODO (CONSTRUCTORS EXERCISE)
                 //Change the RecipeCategory code below so that the property values are
                 //passed into the constructor rather than set individually.
-                  var rc = new RecipeCategory(
-                      el.value,
-                      item.foodGroups,
-                      item.description, 
-                      item.examples);
+                  var recipe: IRecipeCategory;
+                  recipe.description = item.description;
+                  recipe.examples = item.examples;
+                  recipe.foodGroups = item.foodGroups;
+                  recipe.name =  el.value
+                  var rc = new RecipeCategory(recipe);
                 // rc.name = el.value,
                 // rc.foodGroups = item.foodGroups,
                 // rc.description = item.description,

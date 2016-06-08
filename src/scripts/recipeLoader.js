@@ -29,7 +29,12 @@ var RecipeLoader = (function () {
                 //TODO (CONSTRUCTORS EXERCISE)
                 //Change the RecipeCategory code below so that the property values are
                 //passed into the constructor rather than set individually.
-                var recipeCategory = new RecipeCategory(category.title, _this.getFoodGroups(category), category.details, _this.getExamples(category));
+                var recipeCategory = new RecipeCategory({
+                    name: category.title,
+                    foodGroups: _this.getFoodGroups(category),
+                    description: category.details,
+                    examples: _this.getExamples(category)
+                });
                 recipeCategories.items.push(recipeCategory);
                 // let recipeCategory = new RecipeCategory();
                 // recipeCategory.name = category.title;

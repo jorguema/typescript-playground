@@ -9,7 +9,7 @@ class RecipeLoader {
     //   This will provide the caller with much better code help as they work with the return value.
     //2. If you're in VS Code, right-click on JQueryPromise and select "Peek Definition" from the menu
     //3. Take a moment to explore how the JQueryPromise interface uses generics
-    load() : any {
+    load() : JQueryPromise<IRecipeData> {
         return $.getJSON(this.url).then((data: any) => {
             var recipeData = this.mapData(data);      
             return recipeData; 
@@ -22,25 +22,23 @@ class RecipeLoader {
             
             //TODO (INTERFACES EXERCISE)
             //Pass IRecipeCategory as the type to the generic below
-            var recipeCategories = new RecipeCategories<RecipeCategory>();
+            var recipeCategories = new RecipeCategories<IRecipeCategory>();
             
             //TODO (INTERFACES EXERCISE)
             //Pass IRecipeCategorySummary as the type to the generic below
-            var recipeCategoriesSummary = new RecipeCategories<RecipeCategorySummary>();
+            var recipeCategoriesSummary = new RecipeCategories<IRecipeCategorySummary>();
             
             categories.forEach((category: any) => {
               
                 //TODO (CONSTRUCTORS EXERCISE)
                 //Change the RecipeCategory code below so that the property values are
                 //passed into the constructor rather than set individually.
-              
-
-                var recipeCategory = new RecipeCategory(
-                    category.title,
-                    this.getFoodGroups(category),
-                    category.details,
-                    this.getExamples(category)
-                );
+                var recipeCategory = new RecipeCategory({
+                    name: category.title,
+                    foodGroups: this.getFoodGroups(category),
+                    description: category.details,
+                    examples: this.getExamples(category)
+                });
                 recipeCategories.items.push(recipeCategory);
                 
                 // let recipeCategory = new RecipeCategory();

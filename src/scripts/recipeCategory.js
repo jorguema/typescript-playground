@@ -10,22 +10,10 @@ var __extends = (this && this.__extends) || function (d, b) {
 //1. Add code so that RecipeCategory inherits from BaseRecipeCategory
 var RecipeCategory = (function (_super) {
     __extends(RecipeCategory, _super);
-    //TODO (INTERFACES EXERCISE)
-    //1. Change the constructor's parameter type to IRecipeCategory
-    /*
-      TODO (CONSTRUCTORS EXERCISE)
-      1. Create a constructor that accepts a recipeCategory parameter of type RecipeCategory
-      2. Perform the following tasks inside of the constructor:
-         a. Pass the "name" and "foodGroups"" values from the recipeCategory constructor
-            parameter to the BaseRecipeCategory class (the base class or "super") by calling super().
-         b. Assign the recipeCategory parameter's description property to the description property in this class.
-         c. Assign the recipeCategory parameter's examples property to the examples property in this class.
-    
-    */
-    function RecipeCategory(name, foodGroups, description, examples) {
-        _super.call(this, name, foodGroups);
-        this.description = description;
-        this.examples = examples;
+    function RecipeCategory(recipeCategory) {
+        _super.call(this, recipeCategory.name, recipeCategory.foodGroups);
+        this.description = recipeCategory.description;
+        this.examples = recipeCategory.examples;
     }
     return RecipeCategory;
 }(BaseRecipeCategory));
